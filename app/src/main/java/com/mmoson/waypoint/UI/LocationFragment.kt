@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.mmoson.waypoint.R
 import com.mmoson.waypoint.mvp.presenter.LocationPresenter
 import com.mmoson.waypoint.mvp.presenter.impl.LocationPresenterImpl
@@ -29,6 +32,12 @@ class LocationFragment : Fragment(), LocationView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        context = view.context
+        val mainActivity = activity as AppCompatActivity
 
+        val btn = rootView.findViewById<Button>(R.id.btn_compass)
+        btn.setOnClickListener {
+            Navigation.findNavController(rootView).navigate(R.id.nav_compass)
+        }
     }
 }
