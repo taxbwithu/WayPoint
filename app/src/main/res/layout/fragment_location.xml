@@ -2,20 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Latitude"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/input_latitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="numer 1"
-        android:textSize="30sp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="58"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Longitude"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/input_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="47"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/btn_compass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click"
-        />
+        android:text="Lead the way"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

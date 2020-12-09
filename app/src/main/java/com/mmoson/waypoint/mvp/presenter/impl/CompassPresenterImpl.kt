@@ -9,7 +9,7 @@ class CompassPresenterImpl : CompassPresenter() {
     private var view: CompassView? = null
     lateinit var context: Context
 
-    override fun attachView(view: CompassView){
+    override fun attachView(view: CompassView) {
         this.view = view
     }
 }
