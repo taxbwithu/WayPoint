@@ -8,11 +8,18 @@
         android:name="com.mmoson.waypoint.UI.LocationFragment"
         android:label="Enter Coordinates">
         <action
-            android:id="@+id/action_compass"
+            android:id="@+id/nav_compass"
             app:destination="@id/nav_compass" />
     </fragment>
     <fragment
         android:id="@+id/nav_compass"
         android:name="com.mmoson.waypoint.UI.CompassFragment"
-        android:label="Follow the green arrow" />
+        android:label="Follow the green arrow" >
+        <argument
+            android:name="latitude"
+            app:argType="string" />
+        <argument
+            android:name="longitude"
+            app:argType="string" />
+    </fragment>
 </navigation>

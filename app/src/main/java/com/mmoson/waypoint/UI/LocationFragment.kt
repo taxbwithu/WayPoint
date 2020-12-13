@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -33,11 +34,20 @@ class LocationFragment : Fragment(), LocationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         context = view.context
-        val mainActivity = activity as AppCompatActivity
 
         val btn = rootView.findViewById<Button>(R.id.btn_compass)
         btn.setOnClickListener {
             Navigation.findNavController(rootView).navigate(R.id.nav_compass)
+            val lt = rootView.findViewById<EditText>(R.id.input_latitude).text.toString()
+            val lg = rootView.findViewById<EditText>(R.id.input_longitude).text.toString()
+            startCompassFragment(lt, lg)
         }
+
+
+    }
+
+    override fun startCompassFragment(lt : String, lg : String){
+        val compassAction = LocationFragmentDirections.navCompass(lt, lg)
+        Navigation.findNavController(rootView).navigate(compassAction)
     }
 }
