@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.mmoson.waypoint.R
+import com.mmoson.waypoint.mvp.view.CompassView
 
 class MainActivity : AppCompatActivity() {
 

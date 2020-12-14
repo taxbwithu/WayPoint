@@ -17,9 +17,9 @@
         android:label="Follow the green arrow" >
         <argument
             android:name="latitude"
-            app:argType="string" />
+            app:argType="string"/>
         <argument
             android:name="longitude"
-            app:argType="string" />
+            app:argType="string"/>
     </fragment>
 </navigation>

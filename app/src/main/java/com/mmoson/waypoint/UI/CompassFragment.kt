@@ -6,23 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.mmoson.waypoint.R
-import com.mmoson.waypoint.mvp.presenter.LocationPresenter
-import com.mmoson.waypoint.mvp.presenter.impl.LocationPresenterImpl
+import com.mmoson.waypoint.mvp.presenter.CompassPresenter
+import com.mmoson.waypoint.mvp.presenter.impl.CompassPresenterImpl
 import com.mmoson.waypoint.mvp.view.CompassView
 
 
 class CompassFragment : Fragment(), CompassView {
 
     internal lateinit var context: Context
-    private var presenter: LocationPresenter = LocationPresenterImpl()
+    private var presenter: CompassPresenter = CompassPresenterImpl()
     lateinit var rootView: View
-    var lt : Float = 0.0f
-    var lg : Float = 0.0f
+    var lt: Float = 0.0f
+    var lg: Float = 0.0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +34,8 @@ class CompassFragment : Fragment(), CompassView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        context = view.context
+        presenter.attachView(this)
         arguments?.let {
             val safeArgs = CompassFragmentArgs.fromBundle(it)
             lt = safeArgs.latitude.toFloat()
