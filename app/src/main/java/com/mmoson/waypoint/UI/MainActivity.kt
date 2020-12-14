@@ -6,10 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.mmoson.waypoint.R
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         thisView = findViewById(R.id.nav_host_frag)
         context = this.applicationContext
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         val permission1 = arrayOf(
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION
@@ -37,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_frag) as NavHostFragment? ?: return
         navController = host.navController
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        toolbar.setupWithNavController(navController)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
         val service = Intent(this, LocationService::class.java)
         startService(service)
