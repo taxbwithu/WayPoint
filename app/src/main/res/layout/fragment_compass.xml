@@ -5,18 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/lat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="numer 2"
-        android:textSize="20sp"/>
-
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lon"
+        android:id="@+id/distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounder_background"
         android:fontFamily="@font/advent_pro_medium"

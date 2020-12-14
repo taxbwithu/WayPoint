@@ -106,7 +106,9 @@ public class LocationService extends Service {
         // handler.removeCallbacks(sendUpdatesToUI);
         super.onDestroy();
         Log.v("STOP_SERVICE", "DONE");
-        locationManager.removeUpdates(listener);
+        if (listener != null){
+            locationManager.removeUpdates(listener);
+        }
     }
 
     public static Thread performOnBackgroundThread(final Runnable runnable) {
