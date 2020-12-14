@@ -89,7 +89,6 @@ class CompassPresenterImpl : CompassPresenter(), SensorEventListener {
         azimuth = Math.round(azimuth.toFloat())
         view?.spinCompass((-azimuth).toFloat())
         val angle = DistanceUtils().angle(currentLT!!, currentLG!!, lt, lg)
-        Log.d("TAG", "rotation: " + angle)
         view?.spinDestination((-azimuth).toFloat()-315.0f+angle.toFloat())
     }
 
