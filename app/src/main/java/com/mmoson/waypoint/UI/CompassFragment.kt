@@ -6,9 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -42,6 +44,7 @@ class CompassFragment : Fragment(), CompassView{
         super.onViewCreated(view, savedInstanceState)
         context = view.context
         presenter.attachView(this)
+        presenter.setCompass(context)
         arguments?.let {
             val safeArgs = CompassFragmentArgs.fromBundle(it)
             lt = safeArgs.latitude.toDouble()
@@ -58,6 +61,7 @@ class CompassFragment : Fragment(), CompassView{
         inst.findDeviceLocation(activity)
         lg = inst.longitude.toDouble()
         lt = inst.latitude.toDouble()
+        presenter.calculateDistance(lt, lg)
     }
 
     override fun onDetach() {
@@ -80,5 +84,15 @@ class CompassFragment : Fragment(), CompassView{
         val distanceEdit = rootView.findViewById<TextView>(R.id.distance)
         val dist = resources.getString(R.string.distance_from_destination) + " " + distance + " " + dstFormat
         distanceEdit.setText(dist)
+    }
+
+    override fun spinCompass(rotation: Float) {
+        val compass = rootView.findViewById<ImageView>(R.id.compass)
+        compass.rotation = rotation
+    }
+
+    override fun spinDestination(rotation: Float) {
+        val destination = rootView.findViewById<ImageView>(R.id.destination)
+        destination.rotation = rotation
     }
 }

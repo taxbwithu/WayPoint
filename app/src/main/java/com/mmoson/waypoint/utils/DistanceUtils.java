@@ -18,6 +18,21 @@ public class DistanceUtils {
         return (dist);
     }
 
+    public double angle(double p1x, double p1y, double p2x, double p2y){
+        double dLon = (p2y - p1y);
+
+        double y = Math.sin(dLon) * Math.cos(p2x);
+        double x = Math.cos(p1x) * Math.sin(p2x) - Math.sin(p1x)
+                * Math.cos(p2x) * Math.cos(dLon);
+
+        double brng = Math.atan2(y, x);
+
+        brng = Math.toDegrees(brng);
+        brng = (brng + 360) % 360;
+
+        return brng;
+    }
+
     private double deg2rad(double deg) {
         return (deg * Math.PI / 180.0);
     }
