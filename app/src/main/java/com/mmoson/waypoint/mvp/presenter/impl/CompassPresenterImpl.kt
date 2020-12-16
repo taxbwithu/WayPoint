@@ -6,15 +6,17 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+import android.widget.Toast
 import androidx.core.graphics.rotationMatrix
 import com.mmoson.waypoint.mvp.presenter.CompassPresenter
 import com.mmoson.waypoint.mvp.view.CompassView
 import com.mmoson.waypoint.utils.DistanceUtils
 
-class CompassPresenterImpl : CompassPresenter(), SensorEventListener {
+class CompassPresenterImpl (val distanceUtils: DistanceUtils = DistanceUtils()) : CompassPresenter(), SensorEventListener {
 
     private var view: CompassView? = null
     lateinit var context: Context
+    var userArrived = false
     var sensorManager : SensorManager? = null
     var rotationMatrix = FloatArray(9)
     var azimuth : Int = 0
@@ -44,6 +46,7 @@ class CompassPresenterImpl : CompassPresenter(), SensorEventListener {
     }
 
     override fun setCompass(context : Context){
+        this.context = context
         sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         startCompass()
     }
@@ -53,10 +56,13 @@ class CompassPresenterImpl : CompassPresenter(), SensorEventListener {
         currentLT = currentLat
         currentLG = currentLon
         if(currentLat != null && currentLon != null){
-            distance = DistanceUtils().distance(lt, lg, currentLat, currentLon, 'K')
+            distance = distanceUtils.distance(lt, lg, currentLat, currentLon, 'K')
         }
         if (distance < 1.0){
             view?.showDistance(String.format("%.0f", distance*1000.0), "m.")
+            if(!userArrived && (distance*1000)<2.0){
+                userArrived = true
+            }
         }
         else{
             view?.showDistance(String.format("%.4f", distance), "km.")

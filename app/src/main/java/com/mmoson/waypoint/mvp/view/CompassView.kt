@@ -4,4 +4,5 @@ interface CompassView {
     fun showDistance(distance : String, dstFormat : String)
     fun spinCompass(rotation : Float)
     fun spinDestination(rotation : Float)
+    fun arrivedAtDestination()
 }

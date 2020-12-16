@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mmoson.waypoint.R
@@ -94,5 +95,10 @@ class CompassFragment : Fragment(), CompassView{
     override fun spinDestination(rotation: Float) {
         val destination = rootView.findViewById<ImageView>(R.id.destination)
         destination.rotation = rotation
+    }
+
+    override fun arrivedAtDestination() {
+        Toast.makeText(context,"You arrived at destined location",
+            Toast.LENGTH_SHORT).show()
     }
 }
