@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/nav_localisation">
 
     <fragment
@@ -14,12 +15,12 @@
     <fragment
         android:id="@+id/nav_compass"
         android:name="com.mmoson.waypoint.UI.CompassFragment"
-        android:label="Follow the green arrow" >
+        android:label="Follow the green arrow">
         <argument
             android:name="latitude"
-            app:argType="string"/>
+            app:argType="string" />
         <argument
             android:name="longitude"
-            app:argType="string"/>
+            app:argType="string" />
     </fragment>
 </navigation>

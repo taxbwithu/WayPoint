@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.textview.MaterialTextView
@@ -20,29 +20,32 @@
         android:textSize="20sp"
         android:theme="@style/Widget.MaterialComponents.Button.TextButton"
         app:backgroundTint="@color/purple_500" />
+
     <RelativeLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        >
+        android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/compass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/comp"
             android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"/>
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/comp" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/comp_border"
             android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"/>
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/comp_border" />
+
         <ImageView
             android:id="@+id/destination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/pointer"
             android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"/>
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/pointer" />
     </RelativeLayout>
 </LinearLayout>

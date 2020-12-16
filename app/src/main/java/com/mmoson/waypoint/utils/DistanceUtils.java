@@ -1,7 +1,5 @@
 package com.mmoson.waypoint.utils;
 
-import android.util.Log;
-
 public class DistanceUtils {
     public double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
         double theta = lon1 - lon2;
@@ -17,7 +15,7 @@ public class DistanceUtils {
         return (dist);
     }
 
-    public double angle(double p1x, double p1y, double p2x, double p2y){
+    public double angle(double p1x, double p1y, double p2x, double p2y) {
         double dLon = (p2y - p1y);
 
         double y = Math.sin(dLon) * Math.cos(p2x);

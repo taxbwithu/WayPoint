@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/latitude"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:hint="@string/latitude">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal|numberSigned"
-            />
+            android:inputType="numberDecimal|numberSigned" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/longitude"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:hint="@string/longitude">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal|numberSigned"
-            />
+            android:inputType="numberDecimal|numberSigned" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,15 +43,14 @@
         android:id="@+id/btn_compass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/lead_the_way"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_background"
-        android:theme="@style/Widget.MaterialComponents.Button.TextButton"
+        android:padding="10dp"
+        android:text="@string/lead_the_way"
         android:textSize="20sp"
-        android:layout_gravity="center_horizontal"
+        android:theme="@style/Widget.MaterialComponents.Button.TextButton"
         app:backgroundTint="@color/purple_500"
-        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent"
-        />
+        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
 
 </LinearLayout>

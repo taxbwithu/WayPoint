@@ -12,9 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.getColor
 import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputEditText
@@ -87,7 +85,7 @@ class LocationFragment : Fragment(), LocationView {
         }
     }
 
-    fun checkPermission(mainActivity: AppCompatActivity){
+    fun checkPermission(mainActivity: AppCompatActivity) {
         if (ActivityCompat.checkSelfPermission(
                 context,
                 Manifest.permission.ACCESS_FINE_LOCATION

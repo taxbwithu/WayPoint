@@ -8,21 +8,18 @@ import android.hardware.SensorManager
 import com.mmoson.waypoint.UI.CompassFragment
 import com.mmoson.waypoint.mvp.view.CompassView
 import com.mmoson.waypoint.utils.DistanceUtils
-import org.easymock.EasyMock
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
-import org.mockito.Mockito.*
+import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnit
-import org.powermock.api.mockito.PowerMockito
 import org.powermock.api.mockito.PowerMockito.`when`
 import org.powermock.api.mockito.PowerMockito.mock
-import org.powermock.core.classloader.annotations.PrepareForTest
 import org.powermock.modules.junit4.PowerMockRunner
-import java.util.*
 
 @RunWith(PowerMockRunner::class)
 class CompassPresenterImplTest {
@@ -98,7 +95,7 @@ class CompassPresenterImplTest {
     }
 
     @Test
-    fun testOnSensorChanged_azimuthValue(){
+    fun testOnSensorChanged_azimuthValue() {
         val event = mock(SensorEvent::class.java)
         compassPresenter.onSensorChanged(event)
         verify(compassView, times(1)).spinCompass(0.0f)

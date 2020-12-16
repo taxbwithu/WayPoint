@@ -32,7 +32,6 @@ public class GPSUtils {
     public void initPermissions(Activity activity) {
         ActivityCompat.requestPermissions(activity, new String[]
                 {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-
     }
 
     public void findDeviceLocation(Activity activity) {

@@ -6,14 +6,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mmoson.waypoint.R
 import com.mmoson.waypoint.mvp.presenter.CompassPresenter
@@ -22,12 +20,12 @@ import com.mmoson.waypoint.mvp.view.CompassView
 import com.mmoson.waypoint.utils.GPSUtils
 
 
-class CompassFragment : Fragment(), CompassView{
+class CompassFragment : Fragment(), CompassView {
 
     internal lateinit var context: Context
     private var presenter: CompassPresenter = CompassPresenterImpl()
     lateinit var rootView: View
-    var receiver : BroadcastReceiver? = null
+    var receiver: BroadcastReceiver? = null
     var lt: Double = 0.0
     var lg: Double = 0.0
 
@@ -56,7 +54,7 @@ class CompassFragment : Fragment(), CompassView{
         registerReceiver()
     }
 
-    fun getStartLocation(){
+    fun getStartLocation() {
         val inst = GPSUtils.getInstance()
         inst.initPermissions(activity)
         inst.findDeviceLocation(activity)
@@ -70,20 +68,24 @@ class CompassFragment : Fragment(), CompassView{
         activity?.unregisterReceiver(receiver)
     }
 
-    fun registerReceiver(){
+    fun registerReceiver() {
         receiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                presenter.calculateDistance(intent?.getDoubleExtra("LAT",0.0), intent?.getDoubleExtra("LON", 0.0))
+                presenter.calculateDistance(
+                    intent?.getDoubleExtra("LAT", 0.0),
+                    intent?.getDoubleExtra("LON", 0.0)
+                )
             }
         }
         val intentFilter = IntentFilter()
         intentFilter.addAction("com.mmoson.action.LOCATE")
-        activity?.registerReceiver(receiver,intentFilter)
+        activity?.registerReceiver(receiver, intentFilter)
     }
 
-    override fun showDistance(distance : String, dstFormat : String){
+    override fun showDistance(distance: String, dstFormat: String) {
         val distanceEdit = rootView.findViewById<TextView>(R.id.distance)
-        val dist = resources.getString(R.string.distance_from_destination) + " " + distance + " " + dstFormat
+        val dist =
+            resources.getString(R.string.distance_from_destination) + " " + distance + " " + dstFormat
         distanceEdit.setText(dist)
     }
 
@@ -98,7 +100,9 @@ class CompassFragment : Fragment(), CompassView{
     }
 
     override fun arrivedAtDestination() {
-        Toast.makeText(context,"You arrived at destined location",
-            Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context, "You arrived at destined location",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

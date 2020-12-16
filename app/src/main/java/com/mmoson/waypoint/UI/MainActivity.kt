@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
